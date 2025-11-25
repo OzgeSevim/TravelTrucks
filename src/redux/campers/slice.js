@@ -1,48 +1,64 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCampers } from "./campersThunks";
+import { fetchCampers, fetchCamperById } from "./operations.js";
 
 const initialState = {
   items: [],
-  loading: false,
-  error: null,
+  camperDetail: null,
   page: 1,
   limit: 4,
+  loading: false,
+  error: null,
+  hasMore: true,
 };
 
 const campersSlice = createSlice({
   name: "campers",
   initialState,
   reducers: {
-    incrementPage: (state) => {
+    resetCaravans: (state) => {
+      state.items = [];
+      state.page = 1;
+      state.hasMore = true;
+    },
+    loadMore: (state) => {
       state.page += 1;
     },
-    resetPage: (state) => {
-      state.page = 1;
+    clearCamperDetail: (state) => {
+      state.camperDetail = null;
     },
   },
   extraReducers: (builder) => {
     builder
+      // Listeleme
       .addCase(fetchCampers.pending, (state) => {
         state.loading = true;
-        state.error = null;
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
-        state.loading = false;
+        state.items = [...state.items, ...action.payload.items];
 
-        // Load More mantığı
-        if (state.page === 1) {
-          state.items = action.payload;
-        } else {
-          state.items = [...state.items, ...action.payload];
-        }
+        state.loading = false;
+        if (action.payload.length < state.limit) state.hasMore = false;
       })
       .addCase(fetchCampers.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+
+      // Detay
+      .addCase(fetchCamperById.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchCamperById.fulfilled, (state, action) => {
+        state.camperDetail = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchCamperById.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
   },
 });
 
-export const { incrementPage, resetPage } = campersSlice.actions;
-
+export const { resetCaravans, loadMore, clearCamperDetail } =
+  campersSlice.actions;
 export default campersSlice.reducer;
