@@ -13,10 +13,12 @@ const CatalogPage = () => {
     setAppliedFilters(filters);
   };
   return (
-    <div>
+    <div className={css.catalogPageContainer}>
       <NavBar />
-      <Filters onApplyFilters={handleApplyFilters} />
-      <CamperList filters={appliedFilters} />
+      <div className={css.catalog}>
+        <Filters onApplyFilters={handleApplyFilters} />
+        <CamperList filters={appliedFilters} />
+      </div>
     </div>
   );
 };

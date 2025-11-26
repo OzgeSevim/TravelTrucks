@@ -28,8 +28,8 @@ const vehicleEquipmentList = [
 
 const vehicleTypeList = [
   { label: "Van", icon: <Van /> },
+  { label: "Fully Integrated", icon: <FullyIntegrated /> },
   { label: "Alcove", icon: <Alcove /> },
-  { label: "FullyIntegrated", icon: <FullyIntegrated /> },
 ];
 
 const Filters = () => {
@@ -40,55 +40,63 @@ const Filters = () => {
   // const selected = useSelector((state) => state.filters.features);
 
   return (
-    <div>
-      <div>
-        <label htmlFor="">Location</label>
-        <input
-          type="text"
-          placeholder="Enter location"
-          value={location}
-          onChange={(e) => dispatch(setLocation(e.target.value))}
-        />
-      </div>
+    <div className={css.filters}>
+      <div className={css.filtersContainer}>
+        <div className={css.firstFilter}>
+          <label>Location</label>
+          <input
+            type="text"
+            value={location}
+            onChange={(e) => dispatch(setLocation(e.target.value))}
+          />
+        </div>
 
-      <div>
-        <h3>Vehicle equipment</h3>
-        <div className={css.grid}>
-          {vehicleEquipmentList.map((item) => {
-            const isActive = features.includes(item.label);
+        <p className={css.filterText}>Filters</p>
 
-            return (
-              <div
-                key={item.label}
-                className={`${css.box} ${isActive ? css.active : ""}`}
-                onClick={() => dispatch(toggleFeature(item.label))}
-              >
-                {item.icon}
-                <span>{item.label}</span>
-              </div>
-            );
-          })}
+        <div className={css.secondFilter}>
+          <h3>Vehicle equipment</h3>
+          <hr />
+          <div className={css.filterOptions}>
+            {vehicleEquipmentList.map((item) => {
+              const isActive = features.includes(item.label);
+
+              return (
+                <div
+                  key={item.label}
+                  className={`${css.box} ${isActive ? css.active : ""}`}
+                  onClick={() => dispatch(toggleFeature(item.label))}
+                >
+                  {item.icon}
+                  <span>{item.label}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className={css.thirdFilter}>
+          <h3>Vehicle Types</h3>
+          <hr />
+          <div className={css.filterOptions}>
+            {vehicleTypeList.map((item) => {
+              const isActive = vehicleType.includes(item.label);
+              return (
+                <div
+                  key={item.label}
+                  className={`${css.box} ${isActive ? css.active : ""}`}
+                  onClick={() => dispatch(setVehicleType(item.label))}
+                >
+                  {item.icon}
+                  <span>{item.label}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
 
-      <div>
-        <h3>Vehicle Types</h3>
-        {vehicleTypeList.map((item) => {
-          const isActive = vehicleType.includes(item.label);
-          return (
-            <div
-              key={item.label}
-              className={`${css.box} ${isActive ? css.active : ""}`}
-              onClick={() => dispatch(setVehicleType(item.label))}
-            >
-              {item.icon}
-              <span>{item.label}</span>
-            </div>
-          );
-        })}
-      </div>
-
       <button
+        className={css.filtersButton}
         onClick={() => dispatch(fetchCampers({ page: 1, limit: 4, filters }))}
       >
         Search
