@@ -23,18 +23,19 @@ const CamperList = ({ filters }) => {
   };
 
   return (
-    <div>
-      {/* Karavan Kartları */}
-      <div className="camper-grid">
+    <div className={css.camperListContainer}>
+      <div className={css.camperList}>
         {items.map((camper, index) => (
           <CamperCard key={`${camper.id}-${index}`} camper={camper} />
         ))}
       </div>
-
-      {/* Load More Butonu */}
       {hasMore && (
         <div>
-          <button onClick={handleLoadMore} disabled={loading}>
+          <button
+            className={css.loadMoreButton}
+            onClick={handleLoadMore}
+            disabled={loading}
+          >
             {loading ? "Loading..." : "Load More"}
           </button>
         </div>

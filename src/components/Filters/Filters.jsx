@@ -37,7 +37,6 @@ const Filters = () => {
 
   const filters = useSelector((state) => state.filters);
   const { location, vehicleType, features } = filters;
-  // const selected = useSelector((state) => state.filters.features);
 
   return (
     <div className={css.filters}>
