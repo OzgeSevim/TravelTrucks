@@ -24,52 +24,23 @@ const CamperCard = ({ camper }) => {
   };
 
   return (
-    <div
-      style={{
-        border: "1px solid #ddd",
-        borderRadius: "8px",
-        padding: "1rem",
-        position: "relative",
-      }}
-    >
+    <div>
       {/* Favori Butonu */}
-      <button
-        onClick={handleFavorite}
-        style={{
-          position: "absolute",
-          top: "10px",
-          right: "10px",
-          background: "none",
-          border: "none",
-          cursor: "pointer",
-          fontSize: "1.2rem",
-          color: isFavorite ? "red" : "gray",
-        }}
-      >
-        {isFavorite ? "♥" : "♡"}
-      </button>
+      <button onClick={handleFavorite}>{isFavorite ? "♥" : "♡"}</button>
 
       {/* Karavan Bilgileri */}
       <img
-        src={camper.image || "https://via.placeholder.com/300x200"}
+        src={
+          camper.gallery?.[0]?.thumb || "https://via.placeholder.com/300x200"
+        }
         alt={camper.name}
-        style={{ width: "100%", borderRadius: "8px", marginBottom: "0.5rem" }}
       />
       <h3>{camper.name}</h3>
       <p>Tip: {camper.vehicleType || "Belirtilmemiş"}</p>
-      <p>Fiyat: {camper.price?.toFixed(2) || "0.00"}₺ / gün</p>
+      <p>Fiyat: {camper.price?.toFixed(2) || "0.00"}</p>
 
       {/* Show More Butonu */}
-      <button
-        onClick={handleShowMore}
-        style={{
-          marginTop: "0.5rem",
-          padding: "0.5rem 1rem",
-          cursor: "pointer",
-        }}
-      >
-        Show More
-      </button>
+      <button onClick={handleShowMore}>Show More</button>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   location: "",
   vehicleType: "",
-  features: [], // klima, mutfak, vb.
+  features: ["AC", "Automatic", "Kitchen", "TV", "Bathroom"],
 };
 
 const filtersSlice = createSlice({

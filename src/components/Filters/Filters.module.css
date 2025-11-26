@@ -1,0 +1,32 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.box {
+  border: 1px solid #dadada;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s ease;
+  background: #fff;
+}
+
+.box:hover {
+  border-color: #ff3d3d;
+}
+
+.box.active {
+  border-color: #e44848;
+  background: #fff;
+}
+
+.box span {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #383838;
+}
