@@ -5,15 +5,15 @@ import { FaStar } from "react-icons/fa";
 const CamperReviews = ({ camper }) => {
   const reviews = camper.reviews;
   return (
-    <div>
+    <div className={css.reviewsContainer}>
       {reviews.map((item) => {
         return (
-          <div className={css.reviewsContainer}>
+          <div className={css.reviewsBox}>
             <div className={css.reviewsTitle}>
-              <div className={css.reviewsTitle}>
+              <div className={css.reviewsTitleCircle}>
                 <h2>{item.reviewer_name[0]}</h2>
               </div>
-              <div>
+              <div className={css.reviewsRating}>
                 <p>{item.reviewer_name}</p>
                 <div className={css.starsRow}>
                   {[1, 2, 3, 4, 5].map((star) => (

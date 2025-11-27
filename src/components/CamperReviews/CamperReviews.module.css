@@ -1,0 +1,47 @@
+.reviewsBox {
+  width: 631px;
+  font-family: "Inter", sans-serif;
+  line-height: 24px;
+  margin-bottom: 44px;
+}
+
+.reviewsTitle {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.reviewsTitleCircle {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: #f2f4f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviewsTitleCircle h2 {
+  color: #e44848;
+  font-weight: 600;
+  font-style: 24px;
+}
+
+.reviewsRating {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reviewsRating p {
+  font-weight: 500;
+  font-style: 16px;
+  color: #101828;
+}
+.reviewsomment {
+  color: #475467;
+  font-weight: 400;
+  font-style: 16px;
+}
