@@ -23,8 +23,8 @@ const ReservationForm = () => {
   const handleSubmit = () => {};
 
   return (
-    <div>
-      <div>
+    <div className={css.formContainer}>
+      <div className={css.formTitle}>
         <h3>Book your campervan now</h3>
         <p>Stay connected! We are always ready to help you.</p>
       </div>
@@ -33,26 +33,48 @@ const ReservationForm = () => {
         onSubmit={handleSubmit}
         validationSchema={Schema}
       >
-        <Form>
-          <div>
-            <Field type="name" name="name" placeholder="Name*" />
+        <Form className={css.form}>
+          <div className={css.formItem}>
+            <Field
+              className={css.formInput}
+              type="name"
+              name="name"
+              placeholder="Name*"
+            />
             <ErrorMessage name="name" component="p" />
           </div>
-          <div>
-            <Field type="email" name="email" placeholder="Email*" />
+          <div className={css.formItem}>
+            <Field
+              className={css.formInput}
+              type="email"
+              name="email"
+              placeholder="Email*"
+            />
             <ErrorMessage name="email" component="p" />
           </div>
-          <div>
-            <Field type="date" name="bookingDate" placeholder="Booking date*" />
+          <div className={css.formItem}>
+            <Field
+              className={css.formInput}
+              type="date"
+              name="bookingDate"
+              placeholder="Booking date*"
+            />
             <ErrorMessage name="bookingDate" component="p" />
           </div>
-          <div>
-            <Field as="textarea" name="comment" placeholder="Comment" />
+          <div className={css.formItem}>
+            <Field
+              className={css.formInput}
+              as="textarea"
+              name="comment"
+              placeholder="Comment"
+            />
             <ErrorMessage name="comment" component="p" />
           </div>
         </Form>
       </Formik>
-      <button onClick={() => console.log("send")}>Send</button>
+      <button className={css.formButton} onClick={() => console.log("send")}>
+        Send
+      </button>
     </div>
   );
 };

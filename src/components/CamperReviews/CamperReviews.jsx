@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 import css from "./CamperReviews.module.css";
 import { FaStar } from "react-icons/fa";
 
