@@ -33,8 +33,8 @@ export const camperEquipmentMap = [
 
 const CamperFeatures = ({ camper }) => {
   return (
-    <div>
-      <div className={css.equipmentList}>
+    <div className={css.featureContainer}>
+      <div className={css.featureIcon}>
         {camperEquipmentMap
           .filter((item) => {
             const val = camper[item.key];
@@ -52,17 +52,35 @@ const CamperFeatures = ({ camper }) => {
           ))}
       </div>
 
-      <div>
+      <div className={css.featureTitle}>
         <h3>Vehicle details</h3>
         <hr />
       </div>
-      <div>
-        <p>Form {camper.form}</p>
-        <p>Length {camper.length}</p>
-        <p>Width {camper.width}</p>
-        <p>Height {camper.height}</p>
-        <p>Tank {camper.tank}</p>
-        <p>Consumption {camper.consumption}</p>
+      <div className={css.featureList}>
+        <div className={css.featureListItem}>
+          <span>Form</span>
+          <span>{camper.form}</span>
+        </div>
+        <div className={css.featureListItem}>
+          <span>Length</span>
+          <span>{camper.length}</span>
+        </div>
+        <div className={css.featureListItem}>
+          <span>Width</span>
+          <span>{camper.width}</span>
+        </div>
+        <div className={css.featureListItem}>
+          <span>Height</span>
+          <span>{camper.height}</span>
+        </div>
+        <div className={css.featureListItem}>
+          <span>Tank</span>
+          <span>{camper.tank}</span>
+        </div>
+        <div className={css.featureListItem}>
+          <span>Consumption</span>
+          <span>{camper.consumption}</span>
+        </div>
       </div>
     </div>
   );
