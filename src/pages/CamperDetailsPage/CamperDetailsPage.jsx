@@ -6,6 +6,8 @@ import CamperFeatures from "../../components/CamperFeatures/CamperFeatures";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCamperById } from "../../redux/campers/operations";
 import { useParams } from "react-router-dom";
+import CamperReviews from "../../components/CamperReviews/CamperReviews";
+import CamperDetail from "../../components/CamperDetail/CamperDetail";
 
 const CamperDetailsPage = () => {
   const { id } = useParams();
@@ -14,13 +16,19 @@ const CamperDetailsPage = () => {
   useEffect(() => {
     dispatch(fetchCamperById(id));
   }, [id, dispatch]);
+
+  if (!camper) return <p>Loading...</p>;
   return (
     <div>
       <NavBar />
-      <div>
-        <ReservationForm />
+      <div className={css.camperDetailsPageContainer}>
+        <CamperDetail camper={camper} />
+        <div>
+          <ReservationForm />
 
-        {camper ? <CamperFeatures camper={camper} /> : <p>Loading...</p>}
+          {camper ? <CamperFeatures camper={camper} /> : <p>Loading...</p>}
+        </div>
+        <CamperReviews camper={camper} />
       </div>
     </div>
   );
