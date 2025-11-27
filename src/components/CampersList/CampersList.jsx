@@ -12,7 +12,6 @@ const CamperList = ({ filters }) => {
     (state) => state.campers
   );
 
-  // Sayfa ilk yüklendiğinde veya filtre değiştiğinde verileri çek
   useEffect(() => {
     dispatch(fetchCampers({ page: 1, limit, filters }));
   }, [dispatch, filters, limit]);
