@@ -28,6 +28,7 @@
 } */
 
 .navBarContainer {
+  background-color: #f7f7f7;
   height: 72px;
   display: flex;
   align-items: center;

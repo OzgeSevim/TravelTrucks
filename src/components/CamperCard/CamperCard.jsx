@@ -68,8 +68,15 @@ const CamperCard = ({ camper }) => {
                 <MdOutlineEuro />
                 {camper.price?.toFixed(2)}
               </h2>
-              <button onClick={handleFavorite}>
+              {/* <button onClick={handleFavorite}>
                 <FaRegHeart size={20} />
+              </button> */}
+              <button onClick={handleFavorite} className={css.favoriteButton}>
+                {isFavorite ? (
+                  <FaRegHeart size={20} color="#e44848" /> // kırmızı dolu kalp
+                ) : (
+                  <FaRegHeart size={20} color="#101828" /> // boş kalp
+                )}
               </button>
             </div>
           </div>

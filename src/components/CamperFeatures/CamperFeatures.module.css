@@ -24,6 +24,7 @@
   line-height: 24px;
   height: 48px;
   padding: 0 14px;
+  gap: 10px;
 }
 
 .featureTitle h3 {
