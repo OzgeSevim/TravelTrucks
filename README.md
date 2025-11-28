@@ -1,16 +1,39 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🚐 TravelTrucks
+TravelTrucks, karavan kiralama hizmeti sunan bir web uygulamasıdır.
+Kullanıcılar karavanları görüntüleyebilir, filtreleyebilir, favorilere ekleyebilir ve detay sayfasında özellikleri ile yorumları inceleyebilir.
+✨ Özellikler
+Ana sayfa + CTA yönlendirmesi
+Katalog sayfası
+Backend tabanlı filtreleme
+Favorilere ekleme (kalıcı)
+Load More (sayfalama)
+Show Details → yeni sekmede açılır
+Karavan detay sayfası
+Fotoğraf galerisi
+Özellikler (Features)
+Yorumlar (Reviews)
+Tab yapısı
+Rezervasyon formu
+Redux global state
+Axios ile API bağlantısı
+React Router ile yönlendirme
+CSS Modules ile stil
+🛠 Kullanılan Teknolojiler
+React + Vite
+Redux Toolkit
+React Router DOM
+Axios
+CSS Modules
+🚀 Kurulum
+git clone https://github.com/OzgeSevim/TravelTrucks
+cd TravelTrucks
+npm install
+npm run dev
+🔗 API
+Proje şu endpointleri kullanır:
+GET /campers
+GET /campers/:id
+Kaynak: https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers
+👤 Yazar
+Özge Sevim
+GitHub: https://github.com/OzgeSevim
