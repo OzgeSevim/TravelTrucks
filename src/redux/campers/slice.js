@@ -34,10 +34,14 @@ const campersSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
-        state.items = [...state.items, ...action.payload.items];
+        if (state.page === 1) {
+          state.items = action.payload.items; // filtreleme ise eski listeyi sil
+        } else {
+          state.items = [...state.items, ...action.payload.items]; // load more için ekle
+        }
 
         state.loading = false;
-        if (action.payload.length < state.limit) state.hasMore = false;
+        if (action.payload.items.length < state.limit) state.hasMore = false;
       })
       .addCase(fetchCampers.rejected, (state, action) => {
         state.loading = false;

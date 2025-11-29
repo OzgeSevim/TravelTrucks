@@ -17,6 +17,7 @@ import {
   Alcove,
 } from "../../assets/Icons/Icons.jsx";
 import { fetchCampers } from "../../redux/campers/operations.js";
+import { resetCaravans } from "../../redux/campers/slice.js";
 
 const vehicleEquipmentList = [
   { label: "AC", icon: <AC /> },
@@ -96,7 +97,10 @@ const Filters = () => {
 
       <button
         className={css.filtersButton}
-        onClick={() => dispatch(fetchCampers({ page: 1, limit: 4, filters }))}
+        onClick={() => {
+          dispatch(resetCaravans());
+          dispatch(fetchCampers({ page: 1, limit: 4, filters }));
+        }}
       >
         Search
       </button>

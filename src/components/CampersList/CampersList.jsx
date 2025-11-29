@@ -17,8 +17,9 @@ const CamperList = ({ filters }) => {
   }, [dispatch, filters, limit]);
 
   const handleLoadMore = () => {
-    dispatch(loadMore()); // page +1
-    dispatch(fetchCampers({ page: page + 1, limit, filters }));
+    const nextPage = page + 1;
+    dispatch(loadMore());
+    dispatch(fetchCampers({ page: nextPage, limit, filters }));
   };
 
   return (

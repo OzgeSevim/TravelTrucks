@@ -49,8 +49,14 @@ export const fetchCampers = createAsyncThunk(
 
       if (filters.location) params.location = filters.location;
 
-      if (filters.vehicleType) params.form = filters.vehicleType.toLowerCase(); // küçük harf
-
+      const vehicleTypeMap = {
+        Van: "van",
+        "Fully Integrated": "fullyIntegrated",
+        Alcove: "alcove",
+      };
+      if (filters.vehicleType) {
+        params.form = vehicleTypeMap[filters.vehicleType];
+      }
       const map = {
         AC: { type: "boolean", field: "AC" },
         Kitchen: { type: "boolean", field: "kitchen" },
